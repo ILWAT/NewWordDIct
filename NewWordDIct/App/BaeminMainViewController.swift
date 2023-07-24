@@ -18,7 +18,7 @@ class BaeminMainViewController: UIViewController {
 
         setButtonUI()
         
-        print("hello")
+        print("SeSAC")
     }
     
     
