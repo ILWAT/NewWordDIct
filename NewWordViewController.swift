@@ -17,12 +17,19 @@ class NewWordViewController: UIViewController {
     @IBOutlet var firstWordButton: UIButton!
     @IBOutlet var thirdWordButton: UIButton!
     @IBOutlet var secondWordButton: UIButton!
+    @IBOutlet weak var fourthWordButton: UIButton!
+    
+    @IBOutlet var searchButtonStack: [UIButton]!
+    
+    var newWordList: [String: String] = ["버카충": "버스 카드 충전", "알잘딱깔센": "알아서 잘 딱 깔끔하게 센스있게", "별다줄": "별거 다 줄인다", "중꺽마": "중요한 것은 꺽이지 않는 마음", "킹받네": "King + 열받네", "분좋카": "분위기 좋은 카페", "캘박": "캘린더 박제"]
+    
+    var nextChangeBtnIndex = 0
     
     //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setButtonUI(button: [firstWordButton, secondWordButton, thirdWordButton])
+        setButtonUI(button: [firstWordButton, secondWordButton, thirdWordButton, fourthWordButton])
         setTextFieldUI()
         setEtcUI()
         
@@ -35,7 +42,18 @@ class NewWordViewController: UIViewController {
         //2.
         wordTextField.text = sender.currentTitle ?? ""
 //        wordTextField.text = sender.titleLabel?.text ?? ""
-        tappedTextFieldKeyboard(wordTextField)
+        guard let word = wordTextField.text else {
+            displayLabel.text = "찾는 결과가 없습니다."
+            return }
+        if newWordList.keys.contains(word){
+            guard let wordMean = newWordList[word] else {
+                displayLabel.text = "찾는 결과가 없습니다."
+                return
+            }
+            displayLabel.text = #""\#(word)" 뜻은 "\#(wordMean)" 입니다."#
+        } else{
+            displayLabel.text = "찾는 결과가 없습니다."
+        }
     }
     
     //3.
@@ -71,43 +89,48 @@ class NewWordViewController: UIViewController {
         }*/
 
         //switch
-        switch (wordTextField.text){
-        case "별다줄":
-            displayLabel.text = "\(wordTextField.text ?? "별다줄") 뜻은 \"별거 다 줄인다\" 입니다."
-        case "버카충":
-            displayLabel.text = "\(wordTextField.text ?? "버카충") 뜻은 \"버스 카드 충전\" 입니다."
-        case "알잘딱깔센":
-            displayLabel.text = "\(wordTextField.text ?? "알잘딱깔센") 뜻은 \"알아서 잘 딱 깔끔하게 센스있게\" 입니다."
-        default:
-            displayLabel.text = "찾는 결과가 없습니다."
-            
-        }
+//        switch (wordTextField.text){
+//        case "별다줄":
+//            displayLabel.text = "\(wordTextField.text ?? "별다줄") 뜻은 \"별거 다 줄인다\" 입니다."
+//        case "버카충":
+//            displayLabel.text = "\(wordTextField.text ?? "버카충") 뜻은 \"버스 카드 충전\" 입니다."
+//        case "알잘딱깔센":
+//            displayLabel.text = "\(wordTextField.text ?? "알잘딱깔센") 뜻은 \"알아서 잘 딱 깔끔하게 센스있게\" 입니다."
+//        default:
+//            displayLabel.text = "찾는 결과가 없습니다."
+//
+//        }
+        
+        checkValidTypeTextField()
         
     }
     @IBAction func tappedSearchButton(_ sender: UIButton) {
         view.endEditing(true)
         //switch
-        switch (wordTextField.text){
-        case "별다줄":
-            displayLabel.text = "\(wordTextField.text ?? "별다줄") 뜻은 \"별거 다 줄인다\" 입니다."
-        case "버카충":
-            displayLabel.text = "\(wordTextField.text ?? "버카충") 뜻은 \"버스 카드 충전\" 입니다."
-        case "알잘딱깔센":
-            displayLabel.text = "\(wordTextField.text ?? "알잘딱깔센") 뜻은 \"알아서 잘 딱 깔끔하게 센스있게\" 입니다."
-        default:
-            displayLabel.text = "찾는 결과가 없습니다."
-        }
+//        switch (wordTextField.text){
+//        case "별다줄":
+//            displayLabel.text = "\(wordTextField.text ?? "별다줄") 뜻은 \"별거 다 줄인다\" 입니다."
+//        case "버카충":
+//            displayLabel.text = "\(wordTextField.text ?? "버카충") 뜻은 \"버스 카드 충전\" 입니다."
+//        case "알잘딱깔센":
+//            displayLabel.text = "\(wordTextField.text ?? "알잘딱깔센") 뜻은 \"알아서 잘 딱 깔끔하게 센스있게\" 입니다."
+//        default:
+//            displayLabel.text = "찾는 결과가 없습니다."
+//        }
+        checkValidTypeTextField()
     }
     
     //MARK: - setUI
     
     func setButtonUI(button: [UIButton]){
+        
         for element in button {
             if #available(iOS 15.0, *) {
                 var config = UIButton.Configuration.plain()
                 config.baseForegroundColor = .black
                 config.cornerStyle = .capsule
                 config.title = element.currentTitle
+                config.titleLineBreakMode = .byClipping
                 element.configuration = config
             } else {
                 let attributedString = NSAttributedString(string: element.titleLabel?.text ?? "", attributes: [.font: UIFont(name: "AppleSDGothicNeo-Medium", size: 20), .foregroundColor: UIColor.black])
@@ -116,10 +139,9 @@ class NewWordViewController: UIViewController {
                 element.layer.borderColor = UIColor.black.cgColor
                 element.layer.borderWidth = 1
                 element.titleLabel?.adjustsFontSizeToFitWidth = true
-                
             }
             
-            
+            fourthWordButton.isHidden = true
             
             //trouble shooting : 에러 발생의 소지가 많은 코드
             //Style이 Plain인 경우 viewDidLoad시에는 코드 설정으로 빌드되어지지만 클릭시 폰트가 스토리보드 지정 설정으로 바뀜
@@ -156,5 +178,49 @@ class NewWordViewController: UIViewController {
         print(result)
         
         return result
+    }
+    
+    func checkValidTypeTextField(){
+        guard let word = wordTextField.text, word.count > 1 else {
+            displayLabel.text = "찾는 결과가 없습니다."
+            var alert = UIAlertController(title: "주의", message: "두글자 이상의 텍스트를 입력해주세요", preferredStyle: .alert)
+            let alertAction1 = UIAlertAction(title: "확인", style: .default)
+            let alertAction2 = UIAlertAction(title: "취소", style: .cancel)
+            alert.addAction(alertAction1)
+            alert.addAction(alertAction2)
+            
+            self.present(alert, animated: true)
+            return }
+        if newWordList.keys.contains(word){
+            guard let wordMean = newWordList[word] else {
+                displayLabel.text = "찾는 결과가 없습니다."
+                return
+            }
+            displayLabel.text = #""\#(word)" 뜻은 "\#(wordMean)" 입니다."#
+            checkButtonStack(word)
+        } else{
+            displayLabel.text = "찾는 결과가 없습니다."
+        }
+    }
+    
+    func checkButtonStack(_ text: String){
+        for element in searchButtonStack {
+            guard let btnString = element.currentTitle else{
+                continue
+            }
+            if text == btnString{
+                return
+            }
+        }
+        if fourthWordButton.isHidden{
+            fourthWordButton.setTitle(text, for: .normal)
+            fourthWordButton.isHidden = !fourthWordButton.isHidden
+            
+        } else{
+            searchButtonStack[nextChangeBtnIndex].setTitle(text, for: .normal)
+            nextChangeBtnIndex += 1
+            nextChangeBtnIndex %= 4
+        }
+        return
     }
 }

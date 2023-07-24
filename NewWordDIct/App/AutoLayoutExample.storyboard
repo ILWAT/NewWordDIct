@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1q6-OD-rfT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8YG-DD-B4f">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -103,40 +103,53 @@
                                     <action selector="tappedTextFieldKeyboard:" destination="8YG-DD-B4f" eventType="editingDidEndOnExit" id="fhK-1o-Qv0"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0fd-Cg-xuQ">
-                                <rect key="frame" x="20" y="131" width="39" height="30"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="버카충">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="tappedWordButton:" destination="8YG-DD-B4f" eventType="touchUpInside" id="Pbc-2Z-Yp4"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="KnX-Ay-Ylv">
+                                <rect key="frame" x="20" y="133.66666666666666" width="363" height="34.333333333333343"/>
+                                <subviews>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0fd-Cg-xuQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="51.666666666666664" height="34.333333333333336"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="버카충">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tappedWordButton:" destination="8YG-DD-B4f" eventType="touchUpInside" id="Pbc-2Z-Yp4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfl-iE-COl">
+                                        <rect key="frame" x="59.666666666666671" y="0.0" width="129.66666666666663" height="34.333333333333336"/>
+                                        <color key="tintColor" systemColor="tintColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="알잘딱깔센"/>
+                                        <connections>
+                                            <action selector="tappedWordButton:" destination="8YG-DD-B4f" eventType="touchUpInside" id="yZa-aa-AEh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfw-6i-zqk">
+                                        <rect key="frame" x="197.33333333333334" y="0.0" width="51.666666666666657" height="34.333333333333336"/>
+                                        <color key="tintColor" systemColor="tintColor"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="별다줄"/>
+                                        <connections>
+                                            <action selector="tappedWordButton:" destination="8YG-DD-B4f" eventType="touchUpInside" id="yt8-re-Q9G"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ASB-3o-pId">
+                                        <rect key="frame" x="257" y="0.0" width="106" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="button"/>
+                                        <connections>
+                                            <action selector="tappedWordButton:" destination="8YG-DD-B4f" eventType="touchUpInside" id="g1z-vj-vUl"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="A3g-9g-vNq">
                                 <rect key="frame" x="10" y="626.66666666666663" width="181.66666666666666" height="181.33333333333337"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="A3g-9g-vNq" secondAttribute="height" multiplier="1:1" id="Ruj-yR-DM6"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfl-iE-COl">
-                                <rect key="frame" x="67" y="131" width="98" height="35"/>
-                                <color key="tintColor" systemColor="tintColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="알잘딱깔센"/>
-                                <connections>
-                                    <action selector="tappedWordButton:" destination="8YG-DD-B4f" eventType="touchUpInside" id="yZa-aa-AEh"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfw-6i-zqk">
-                                <rect key="frame" x="173" y="131" width="39" height="30"/>
-                                <color key="tintColor" systemColor="tintColor"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="별다줄"/>
-                                <connections>
-                                    <action selector="tappedWordButton:" destination="8YG-DD-B4f" eventType="touchUpInside" id="yt8-re-Q9G"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T18-XS-Iec">
                                 <rect key="frame" x="348" y="88.666666666666671" width="35" height="35"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -155,39 +168,41 @@
                         <viewLayoutGuide key="safeArea" id="Itu-tz-5nR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="0fd-Cg-xuQ" firstAttribute="top" secondItem="QbJ-GH-oyL" secondAttribute="bottom" constant="8" id="05T-lt-n1x"/>
                             <constraint firstItem="5hO-bF-M2Z" firstAttribute="leading" secondItem="A3g-9g-vNq" secondAttribute="trailing" constant="10" id="1Tr-ew-SU6"/>
                             <constraint firstItem="Itu-tz-5nR" firstAttribute="trailing" secondItem="T18-XS-Iec" secondAttribute="trailing" constant="10" id="2x4-u5-JBJ"/>
-                            <constraint firstItem="vfw-6i-zqk" firstAttribute="leading" secondItem="xfl-iE-COl" secondAttribute="trailing" constant="8" id="6pl-O6-yHb"/>
                             <constraint firstItem="T18-XS-Iec" firstAttribute="centerY" secondItem="QbJ-GH-oyL" secondAttribute="centerY" id="71S-HD-to1"/>
                             <constraint firstItem="Itu-tz-5nR" firstAttribute="trailing" secondItem="90W-Xq-dzo" secondAttribute="trailing" constant="10" id="7VV-JQ-TDy"/>
-                            <constraint firstItem="xfl-iE-COl" firstAttribute="top" secondItem="QbJ-GH-oyL" secondAttribute="bottom" constant="8" id="8TI-Po-vaQ"/>
                             <constraint firstItem="5hO-bF-M2Z" firstAttribute="width" secondItem="A3g-9g-vNq" secondAttribute="width" id="AaR-Ly-xm6"/>
                             <constraint firstItem="90W-Xq-dzo" firstAttribute="centerY" secondItem="Itu-tz-5nR" secondAttribute="centerY" id="Bwr-g2-3jw"/>
+                            <constraint firstItem="KnX-Ay-Ylv" firstAttribute="leading" secondItem="QbJ-GH-oyL" secondAttribute="leading" id="Er1-g6-mpT"/>
                             <constraint firstItem="A3g-9g-vNq" firstAttribute="leading" secondItem="Itu-tz-5nR" secondAttribute="leading" constant="10" id="EuV-b6-bNJ"/>
                             <constraint firstItem="Itu-tz-5nR" firstAttribute="bottom" secondItem="A3g-9g-vNq" secondAttribute="bottom" constant="10" id="IMI-lx-BR0"/>
                             <constraint firstItem="5hO-bF-M2Z" firstAttribute="height" secondItem="A3g-9g-vNq" secondAttribute="height" id="LVv-DV-hHf"/>
                             <constraint firstItem="5hO-bF-M2Z" firstAttribute="height" secondItem="A3g-9g-vNq" secondAttribute="height" id="Log-Xr-X99"/>
+                            <constraint firstItem="KnX-Ay-Ylv" firstAttribute="top" secondItem="T18-XS-Iec" secondAttribute="bottom" constant="10" id="M4M-l1-EhH"/>
                             <constraint firstItem="90W-Xq-dzo" firstAttribute="leading" secondItem="Itu-tz-5nR" secondAttribute="leading" constant="10" id="M7R-Cu-CtH"/>
                             <constraint firstItem="Itu-tz-5nR" firstAttribute="bottom" secondItem="5hO-bF-M2Z" secondAttribute="bottom" constant="10" id="P2E-cF-nkh"/>
-                            <constraint firstItem="0fd-Cg-xuQ" firstAttribute="leading" secondItem="QbJ-GH-oyL" secondAttribute="leading" id="QD8-L7-zGT"/>
                             <constraint firstItem="QbJ-GH-oyL" firstAttribute="leading" secondItem="Itu-tz-5nR" secondAttribute="leading" constant="20" id="QMh-zs-hSJ"/>
-                            <constraint firstItem="xfl-iE-COl" firstAttribute="leading" secondItem="0fd-Cg-xuQ" secondAttribute="trailing" constant="8" id="XFZ-cQ-pOl"/>
                             <constraint firstItem="Itu-tz-5nR" firstAttribute="trailing" secondItem="5hO-bF-M2Z" secondAttribute="trailing" constant="10" id="Y2S-fq-oj2"/>
                             <constraint firstItem="T18-XS-Iec" firstAttribute="leading" secondItem="QbJ-GH-oyL" secondAttribute="trailing" constant="5" id="eJ1-Ck-4jI"/>
                             <constraint firstItem="90W-Xq-dzo" firstAttribute="centerX" secondItem="Itu-tz-5nR" secondAttribute="centerX" id="ehV-1K-NUn"/>
                             <constraint firstItem="QbJ-GH-oyL" firstAttribute="top" secondItem="Itu-tz-5nR" secondAttribute="top" constant="30" id="kGN-Sx-Bll"/>
-                            <constraint firstItem="vfw-6i-zqk" firstAttribute="top" secondItem="xfl-iE-COl" secondAttribute="top" id="kLO-zp-3EC"/>
+                            <constraint firstItem="KnX-Ay-Ylv" firstAttribute="trailing" secondItem="T18-XS-Iec" secondAttribute="trailing" id="o63-F6-rQs"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="displayLabel" destination="YPX-jL-m8W" id="gvc-NK-jtz"/>
                         <outlet property="firstWordButton" destination="0fd-Cg-xuQ" id="zwo-Yu-zJY"/>
+                        <outlet property="fourthWordButton" destination="ASB-3o-pId" id="hpw-2d-rzr"/>
                         <outlet property="labelBackgroundView" destination="90W-Xq-dzo" id="fWr-6f-bWf"/>
                         <outlet property="searchButton" destination="T18-XS-Iec" id="9ta-dW-IlI"/>
                         <outlet property="secondWordButton" destination="xfl-iE-COl" id="WW7-8P-9ce"/>
                         <outlet property="thirdWordButton" destination="vfw-6i-zqk" id="8mh-hb-tlU"/>
                         <outlet property="wordTextField" destination="QbJ-GH-oyL" id="gW6-QT-WQl"/>
+                        <outletCollection property="searchButtonStack" destination="0fd-Cg-xuQ" collectionClass="NSMutableArray" id="epS-8E-0me"/>
+                        <outletCollection property="searchButtonStack" destination="xfl-iE-COl" collectionClass="NSMutableArray" id="7hs-wN-DHa"/>
+                        <outletCollection property="searchButtonStack" destination="vfw-6i-zqk" collectionClass="NSMutableArray" id="YaU-ec-XgD"/>
+                        <outletCollection property="searchButtonStack" destination="ASB-3o-pId" collectionClass="NSMutableArray" id="4HS-dr-7VN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nnN-gM-47k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -197,7 +212,7 @@
         <!--Ka Kao Clone View Controller-->
         <scene sceneID="wgV-XN-kpx">
             <objects>
-                <viewController id="XSB-cw-eXB" customClass="KaKaoCloneViewController" customModule="SeSAC_Baemin_clone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XSB-cw-eXB" customClass="KaKaoCloneViewController" customModule="NewWordDIct" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ikI-C4-0cM">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -360,7 +375,7 @@
         <!--Music Clone View Controller-->
         <scene sceneID="3OD-1L-QgM">
             <objects>
-                <viewController id="diE-n9-C8K" customClass="MusicCloneViewController" customModule="SeSAC_Baemin_clone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="diE-n9-C8K" customClass="MusicCloneViewController" customModule="NewWordDIct" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="j7a-YX-hwC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -588,7 +603,7 @@
         <!--레이아웃 뽀개기-->
         <scene sceneID="u7C-H4-ndn">
             <objects>
-                <viewController id="OjY-o7-Sgz" customClass="BaeminMainViewController" customModule="SeSAC_Baemin_clone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="OjY-o7-Sgz" customClass="BaeminMainViewController" customModule="NewWordDIct" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NvB-0S-aNs">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
