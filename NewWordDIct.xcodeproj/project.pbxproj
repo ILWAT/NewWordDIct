@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE35B8432A6FB049005ACF3E /* NewWordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE35B8422A6FB049005ACF3E /* NewWordList.swift */; };
 		DE683E472A6A0F2B00DE3C29 /* AutoLayoutPractice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE683E462A6A0F2B00DE3C29 /* AutoLayoutPractice.storyboard */; };
 		DE683E492A6A10E300DE3C29 /* AutoLayoutExample.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE683E482A6A10E300DE3C29 /* AutoLayoutExample.storyboard */; };
 		DE683E4B2A6A4AFA00DE3C29 /* NewWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE683E4A2A6A4AFA00DE3C29 /* NewWordViewController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DE35B8422A6FB049005ACF3E /* NewWordList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWordList.swift; sourceTree = "<group>"; };
 		DE683E462A6A0F2B00DE3C29 /* AutoLayoutPractice.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AutoLayoutPractice.storyboard; sourceTree = "<group>"; };
 		DE683E482A6A10E300DE3C29 /* AutoLayoutExample.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AutoLayoutExample.storyboard; sourceTree = "<group>"; };
 		DE683E4A2A6A4AFA00DE3C29 /* NewWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWordViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -55,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				DE683E4A2A6A4AFA00DE3C29 /* NewWordViewController.swift */,
+				DE35B8422A6FB049005ACF3E /* NewWordList.swift */,
 				DE683E482A6A10E300DE3C29 /* AutoLayoutExample.storyboard */,
 				DED2FD2C2A6D6CFE00995C2E /* KaKaoCloneViewController.swift */,
 				DED2FD2E2A6D6D1100995C2E /* MusicCloneViewController.swift */,
@@ -175,6 +178,7 @@
 				DEE27CFB2A68DC6500FF163F /* DateViewController.swift in Sources */,
 				DEE27CEB2A68DAD800FF163F /* ViewController.swift in Sources */,
 				DE683E4B2A6A4AFA00DE3C29 /* NewWordViewController.swift in Sources */,
+				DE35B8432A6FB049005ACF3E /* NewWordList.swift in Sources */,
 				DEE27CE72A68DAD800FF163F /* AppDelegate.swift in Sources */,
 				DEE27CE92A68DAD800FF163F /* SceneDelegate.swift in Sources */,
 			);

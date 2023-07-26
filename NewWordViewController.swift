@@ -21,7 +21,8 @@ class NewWordViewController: UIViewController {
     
     @IBOutlet var searchButtonStack: [UIButton]!
     
-    var newWordList: [String: String] = ["버카충": "버스 카드 충전", "알잘딱깔센": "알아서 잘 딱 깔끔하게 센스있게", "별다줄": "별거 다 줄인다", "중꺽마": "중요한 것은 꺽이지 않는 마음", "킹받네": "King + 열받네", "분좋카": "분위기 좋은 카페", "캘박": "캘린더 박제"]
+//        var newWordList: [String: String] = ["버카충": "버스 카드 충전", "알잘딱깔센": "알아서 잘 딱 깔끔하게 센스있게", "별다줄": "별거 다 줄인다", "중꺽마": "중요한 것은 꺽이지 않는 마음", "킹받네": "King + 열받네", "분좋카": "분위기 좋은 카페", "캘박": "캘린더 박제"]
+    
     
     var nextChangeBtnIndex = 0
     
@@ -42,18 +43,22 @@ class NewWordViewController: UIViewController {
         //2.
         wordTextField.text = sender.currentTitle ?? ""
 //        wordTextField.text = sender.titleLabel?.text ?? ""
+        //Optional Binding을 활용
         guard let word = wordTextField.text else {
             displayLabel.text = "찾는 결과가 없습니다."
             return }
-        if newWordList.keys.contains(word){
-            guard let wordMean = newWordList[word] else {
-                displayLabel.text = "찾는 결과가 없습니다."
-                return
-            }
-            displayLabel.text = #""\#(word)" 뜻은 "\#(wordMean)" 입니다."#
-        } else{
-            displayLabel.text = "찾는 결과가 없습니다."
-        }
+        
+        //딕셔너리를 활용한 값띄우기
+//        if newWordList.keys.contains(word){
+//            guard let wordMean = newWordList[word] else {
+//                displayLabel.text = "찾는 결과가 없습니다."
+//                return
+//        }
+//        displayLabel.text = "\(word) 뜻은 \(wordMean) 입니다."
+        
+        checkValidTypeTextField()
+        
+        
     }
     
     //3.
@@ -191,26 +196,33 @@ class NewWordViewController: UIViewController {
             
             self.present(alert, animated: true)
             return }
-        if newWordList.keys.contains(word){
-            guard let wordMean = newWordList[word] else {
-                displayLabel.text = "찾는 결과가 없습니다."
-                return
-            }
-            displayLabel.text = #""\#(word)" 뜻은 "\#(wordMean)" 입니다."#
-            checkButtonStack(word)
-        } else{
+        
+        //dictionary 사용하여 단어 뜻 띄우기
+//        if newWordList.keys.contains(word){
+//            guard let wordMean = newWordList[word] else {
+//                displayLabel.text = "찾는 결과가 없습니다."
+//                return
+//            }
+//            displayLabel.text = #""\#(word)" 뜻은 "\#(wordMean)" 입니다."#
+//            checkButtonStack(word)
+//        } else{
+//            displayLabel.text = "찾는 결과가 없습니다."
+//        }
+        
+        //열거형을 사용하여 단어 뜻 띄우기
+        guard let newWordListEnum = newWordList(rawValue: word) else{
             displayLabel.text = "찾는 결과가 없습니다."
+            return
         }
+        displayLabel.text = "\(word) 뜻은 \(newWordListEnum.getMean())입니다."
+        checkButtonStack(word)
     }
     
+    //
     func checkButtonStack(_ text: String){
         for element in searchButtonStack {
-            guard let btnString = element.currentTitle else{
-                continue
-            }
-            if text == btnString{
-                return
-            }
+            guard let btnString = element.currentTitle else{ continue }
+            if text == btnString{ return }
         }
         if fourthWordButton.isHidden{
             fourthWordButton.setTitle(text, for: .normal)
